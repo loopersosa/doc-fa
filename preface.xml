@@ -5,13 +5,14 @@
  <info><title>Preface</title>
  <abstract>
   <simpara>
-   <acronym>PHP</acronym>, which stands for &quot;<literal>PHP: Hypertext
-   Preprocessor</literal>&quot; is a widely-used Open Source general-purpose
-   scripting language that is especially suited for web
-   development and can be embedded into HTML. Its syntax draws
-   upon C, Java, and Perl, and is easy to learn. The main goal of
-   the language is to allow web developers to write dynamically
-   generated web pages quickly, but you can do much more with PHP.
+   <acronym>PHP</acronym>, که مخفف &quot;<literal>PHP: Hypertext
+   Preprocessor</literal>&quot; است; یک زبان متن باز چند منظوره اسکریپت نویسی
+  است که به شکل خاص مناسب توسعه وب است و قابلیت تعبیه
+   به درون HTML را داراست. سینتکس این زبان برگرفته از
+   سی، جاوا و پرل است و یادگیری آن بسیار آسان است. هدف اصلی
+   این زبان این است که به توسعه دهندگان وب این امکان را
+   بدهد که در مدت کوتاه، وبسایت های پویا بسازند، اما شما
+   خیلی بیش از این را نیز می‌توانید با PHP انجام دهید.
   </simpara>
  </abstract>
 </info>
