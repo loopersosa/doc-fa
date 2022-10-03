@@ -101,92 +101,77 @@ memory_limit = ${PHP_MEMORY_LIMIT}
     </example>
   </para>
   <para>
-   The &php.ini; directives handled by extensions are documented
-   on the respective pages of the extensions themselves. A <link linkend="ini">list of
-   the core directives</link> is available in the appendix. Not all
-   PHP directives are necessarily documented in this manual: for a complete list
-   of directives available in your PHP version, please read your well commented
-   &php.ini; file. Alternatively, you may find
-   <link xlink:href="&url.php.git.phpini;">the latest &php.ini;</link> from Git
-   helpful too.
+&php.ini; دستورالعمل هایی که توسط برنامه های افزودنی مدیریت می شوند در صفحات مربوطه خود برنامه های افزودنی مستند می شوند. <link linkend="ini">لیست دستورالعمل های اصلی</link> در پیوست موجود است. همه دستورالعمل‌های PHP لزوماً در این راهنما ثبت نمی‌شوند: برای فهرست کامل دستورالعمل‌های موجود در نسخه PHP، لطفاً &php.ini خود را که به خوبی نظر داده شده است، بخوانید. فایل. همچنین، می‌توانید <link xlink:href="&url.php.git.phpini;">آخرین &php.ini;</link> را از Git بیابید.
+   نیز مفید است.
   </para>
   <para>
    <example>
-    <title>&php.ini; example</title>
+    <title>&php.ini; مثال</title>
     <programlisting role="ini">
 <![CDATA[
-; any text on a line after an unquoted semicolon (;) is ignored
-[php] ; section markers (text within square brackets) are also ignored
-; Boolean values can be set to either:
+; هر متنی در یک خط پس از نقطه ویرگول (;) نقل قول نشده نادیده گرفته می شود
+[php] ; نشانگرهای بخش (متن داخل پرانتز) نیز نادیده گرفته می شوند
+; مقادیر بولی را می توان به یکی از موارد زیر تنظیم کرد:
 ;    true, on, yes
 ; or false, off, no, none
 register_globals = off
 track_errors = yes
 
-; you can enclose strings in double-quotes
-include_path = ".:/usr/local/lib/php"
+;می توانید رشته ها را در دو گیومه قرار دهید
+شامل_مسیر = ".:/usr/local/lib/php"
 
-; backslashes are treated the same as any other character
-include_path = ".;c:\php\lib"
+; با بک‌اسلش مانند هر کاراکتر دیگری رفتار می شود
+شامل_مسیر = ".;c:\php\lib"
 ]]>
     </programlisting>
     <!-- TODO: add more details about values and expressions -->
    </example>
   </para>
   <para>
-   It is possible to refer to existing .ini variables from
-   within .ini files. Example: <literal>open_basedir = ${open_basedir}
+   می توان به متغیرهای .ini موجود در فایل های .ini اشاره کرد 
+   مثال : <literal>open_basedir = ${open_basedir}
    ":/new/dir"</literal>.
   </para>
   <sect2 xml:id="configuration.file.scan">
-   <title>Scan directories</title>
+   <title>اسکن  پوشه ها</title>
 
    <para>
-    It is possible to configure PHP to scan for .ini files in a directory
-    after reading &php.ini;. This can be done at compile time by setting the
-    <option role="configure">--with-config-file-scan-dir</option> option. 
-    The scan directory can then be overridden at run time
-    by setting the <varname>PHP_INI_SCAN_DIR</varname> environment variable.
+    پس از خواندن &php.ini; امکان پیکربندی فایل های PHP برای اسکن فایل‌های .ini وجود دارد و  در زمان کامپایل می‌توان آن را تنظیم کرد.
+    سپس با تنظیم متغیر محیطی <varname>PHP_INI_SCAN_DIR</varname>، دایرکتوری اسکن را می توان در زمان اجرا لغو کرد.
    </para>
 
    <para>
-    It is possible to scan multiple directories by separating them with the
-    platform-specific path separator (<literal>;</literal> on Windows, NetWare
-    and RISC OS; <literal>:</literal> on all other platforms; the value PHP is
-    using is available as the <constant>PATH_SEPARATOR</constant> constant).
-    If a blank directory is given in <varname>PHP_INI_SCAN_DIR</varname>, PHP
-    will also scan the directory given at compile time via
-    <option role="configure">--with-config-file-scan-dir</option>.
+    اسکن چندین دایرکتوری با جدا کردن آنها با
+    جداکننده مسیر مخصوص پلتفرم (<literal>;</literal> در Windows، NetWare
+    و RISC OS امکانپذیر است;
+    تمامی پلتفرم‌های دیگر؛ مقدار PHP است
+    در تمامی پلتفرم‌های دیگر مقداری که PHP استفاده می کند به عنوان ثابت <constant>PATH_SEPARATOR</constant> در دسترس است.
+    اگر پوشه خالی در <varname>PHP_INI_SCAN_DIR</varname> داده شود، PHP
+    همچنین دایرکتوری داده شده در زمان کامپایل را از طریق  <option role="configure">--with-config-file-scan-dir</option> اسکن می کند.
    </para>
 
    <para>
-    Within each directory, PHP will scan all files ending in
-    <literal>.ini</literal> in alphabetical order. A list of the files that
-    were loaded, and in what order, is available by calling
-    <function>php_ini_scanned_files</function>, or by running PHP with the
-    <option>--ini</option> option.
+    درون هر پوشه،‌ PHP تمام فایل ها با پسوند <literal>.ini</literal> را به ترتیب حروف الفبا اسکن می‌کند.
+    لیستی از فایل هایی که بارگزاری شدند، ترتیب آنها با فراخوانی دستور  <function>php_ini_scanned_files</function> ،و یا با ران کردن PHP با گزینه <option>--ini</option> امکان‌پذیر است.
    </para>
 
    <informalexample>
     <screen>
 <![CDATA[
-Assuming PHP is configured with --with-config-file-scan-dir=/etc/php.d,
-and that the path separator is :...
+با فرض پیکربرندی شدن PHP توسط --with-config-file-scan-dir=/etc/php.d,
+و این آدرس جداکننده است : ...
 
 $ php
-  PHP will load all files in /etc/php.d/*.ini as configuration files.
-
+  PHP تمام فایل های درون  /etc/php.d/*.ini را به عنوان فایل های پیکربندی بارگذاری می‌کند. 
+  
 $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d php
-  PHP will load all files in /usr/local/etc/php.d/*.ini as
-  configuration files.
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
 
 $ PHP_INI_SCAN_DIR=:/usr/local/etc/php.d php
-  PHP will load all files in /etc/php.d/*.ini, then
-  /usr/local/etc/php.d/*.ini as configuration files.
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
 
 $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
-  PHP will load all files in /usr/local/etc/php.d/*.ini, then
-  /etc/php.d/*.ini as configuration files.
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
 ]]>
     </screen>
    </informalexample>
@@ -194,102 +179,97 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
  </sect1>
  
  <sect1 xml:id="configuration.file.per-user">
-  <title>.user.ini files</title>
+  <title>.user.ini فایل های</title>
   
   <simpara>
-   PHP includes support for configuration INI files on a
-   per-directory basis. These files are processed <emphasis>only</emphasis> by
-   the CGI/FastCGI SAPI. This functionality obsoletes the PECL htscanner
-   extension. If you are running PHP as Apache module, use &htaccess; files for the same
-   effect.
+   PHP پشتیبانی از پیکربندی فایل های INI را در پوشه بر اساس هر پوشه شامل می‌شود.
+   این فایل  <emphasis>تنها</emphasis> توسط CGI/FastCGI SAPI پردازش می‌شوند.
+   این عملکرد اساس فهرست برنامه افزودنی PECL htscanner را منسوخ می کند.
+   اگر شما PHP را بر روی ماژول APACHE اجرا می‌کنید، از فایل های &htaccess; برای اثر مشابه استفاده کنید.
   </simpara>
   
   <simpara>
-   In addition to the main &php.ini; file, PHP scans for INI files in each
-   directory, starting with the directory of the requested PHP file, and
-   working its way up to the current document root (as set in
-   <varname>$_SERVER['DOCUMENT_ROOT']</varname>). In case the PHP file is
-   outside the document root, only its directory is scanned.
+  علاوه‌بر کل فایل &php.ini; PHP با شروع از پوشه‌ای که فایل PHP درخواست شده در آن وجود دارد
+    تا به پوشه فعلی روت (همانطور که در <varname>$_SERVER['DOCUMENT_ROOT']</varname> تنظیم شده است)
+     برای تمام فایل ها با پسوند .ini اسکن می‌کند.
   </simpara>
   <simpara>
-   Only INI settings with the
-   modes <constant>PHP_INI_PERDIR</constant> and
-   <constant>PHP_INI_USER</constant> will be recognized in .user.ini-style INI
-   files.
+  تنها فایل های INI با تنظیمات حالت  <constant>PHP_INI_PERDIR</constant>  و  <constant>PHP_INI_USER</constant> توسط فایل های INI شناخته خواهندشد.
   </simpara>
   
   <simpara>
-   Two new INI directives,
-   <link linkend="ini.user-ini.filename">user_ini.filename</link> and
+  دو دستورعمل جدید INI،
+     <link linkend="ini.user-ini.filename">user_ini.filename</link> و
    <link linkend="ini.user-ini.cache-ttl">user_ini.cache_ttl</link>
-   control the use of user INI files.
+   کنترل فایل های INI کاربر را به عهده می‌گیرند.
   </simpara>
   
   <simpara>
-   <link linkend="ini.user-ini.filename">user_ini.filename</link> sets the name of the file PHP looks for
-   in each directory; if set to an empty string, PHP doesn't scan at all. The
-   default is <literal>.user.ini</literal>.
+
+  <link linkend="ini.user-ini.filename">user_ini.filename</link> نام فایل مورد نظر PHP را در هر دایرکتوری تعیین می کند;
+   اگر روی یک رشته خالی تنظیم شود، PHP اصلا اسکن نمی کند. را
+   پیش فرض <literal>.user.ini</literal> است
   </simpara>
   
   <simpara>
-   <link linkend="ini.user-ini.cache-ttl">user_ini.cache_ttl</link> controls how often user INI files are
-   re-read. The default is 300 seconds (5 minutes).
+   <link linkend="ini.user-ini.cache-ttl">user_ini.cache_ttl</link> تعداد دفعات بازخوانی فایل های INI کاربر را کنترل می کند. پیش فرض 300 ثانیه (5 دقیقه) است.
   </simpara>
  </sect1>
  
  <sect1 xml:id="configuration.changes.modes">
-  <title>Where a configuration setting may be set</title>
+  <title>جایی که تنظیمات پیکربندی انجام می‌شود</title>
   
   <para>
-   These modes determine when and where a PHP directive may or may not
-   be set, and each directive within the manual refers to one of these
-   modes. For example, some settings may be set within a PHP script
-   using <function>ini_set</function>, whereas others may require
-   &php.ini; or &httpd.conf;.
+  این حالت ها تایین می‌کنند که چه زمانی و چه مکانی دستوزعمل PHP 
+  بتواند یا نتواند تنظیم شود، و هر دستورالعمل در دفترچه راهنما به یکی
+   از این حالت ها اشاره دارد. به عنوان مثال، بعضی از تنظیمات ممکن است
+   در اسکریپت PHP با استفاده از <function>ini_set</function>،
+    تنظیم شوند، درحالیکه بقیه نیاز به &php.ini;، یا &httpd.conf; دارند.
   </para>
   
   <para>
-   For example, the
-   <link linkend="ini.output-buffering">output_buffering</link> setting
-   is <literal>PHP_INI_PERDIR</literal> therefore it may not be set using
-   <function>ini_set</function>. However, the
-   <link linkend="ini.display-errors">display_errors</link> directive is
-   <literal>PHP_INI_ALL</literal> therefore it may be set anywhere,
-   including with <function>ini_set</function>.
+   به عنوان مثال، 
+   تنظیمات  <link linkend="ini.output-buffering">بافر خروحی </link> 
+   <literal>PHP_INI_PERDIR</literal> است، بنابراین ممکن است با 
+   <function>ini_set</function> تنظیم شود. اما، دستورعمل 
+   <link linkend="ini.display-errors">display_errors</link> <literal>PHP_INI_ALL</literal> است
+   بنابراین، می‌توانند هزجایی تنظیم شوند که شامل <function>ini_set</function>
+   نیز می‌شود.
   </para>
   
   <para>
    <table>
-    <title>Definition of PHP_INI_* modes</title>
+    <title>تعریف حالت های PHP_INI_* </title>
     <tgroup cols="2">
      <thead>
       <row>
-       <entry>Mode</entry>
-       <entry>Meaning</entry>
+       <entry>حالت</entry>
+       <entry>معنی</entry>
       </row>
      </thead>
      <tbody>
       <row>
        <entry><literal>PHP_INI_USER</literal></entry>
        <entry>
-        Entry can be set in user scripts (like with <function>ini_set</function>)
-        or in the <link linkend="configuration.changes.windows">Windows registry</link>.
-        Entry can be set in &user-ini;
+       ورودی می‌تواند در اسکریپت کاربر (مانند <function>ini_set</function>)
+       یا در لینک <link linkend="configuration.changes.windows">ثبت نام ویندوز</link>
+    تنظیم شود.
+    ورودی می‌تواند در &user-ini; تنظیم شود
        </entry>
       </row>
       <row>
        <entry><literal>PHP_INI_PERDIR</literal></entry>
        <entry>
-        Entry can be set in &php.ini;, &htaccess;, &httpd.conf; or &user-ini;
+        ورودی می‌تواند در  &php.ini;, &htaccess;, &httpd.conf; یا &user-ini; تنظیم شود.
        </entry>
       </row>
       <row>
        <entry><literal>PHP_INI_SYSTEM</literal></entry>
-       <entry>Entry can be set in &php.ini; or &httpd.conf;</entry>
+       <entry>ورودی می‌تواند در &php.ini; یا  &httpd.conf;</entry> تنظیم شود.
       </row>
       <row>
        <entry><literal>PHP_INI_ALL</literal></entry>
-       <entry>Entry can be set anywhere</entry>
+       <entry>ورودی می‌تواند همه جا تنظیم شود</entry>
       </row>
      </tbody>
     </tgroup>
@@ -298,24 +278,22 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
  </sect1>
  
  <sect1 xml:id="configuration.changes">
-  <title>How to change configuration settings</title>
+  <title>چگونه تنظیمات پیکربندی را تغییر دهیم</title>
   
   <sect2 xml:id="configuration.changes.apache">
-   <title>Running PHP as an Apache module</title>
+   <title>PHP را به عنوان ماژول APACHE اجرا می‌کنید</title>
    <simpara>
-    When using PHP as an Apache module, you can also change the
-    configuration settings using directives in Apache configuration
-    files (e.g. &httpd.conf;) and &htaccess; files. You will need
-    "AllowOverride Options" or "AllowOverride All" privileges to do so.
+   هتکام استفاده از PHP به عنوان ماژول APACHE، شما همچنان می‌توانید
+   تنظیمات پیکربندی را با استفاده از دستورعمل ها در فایل های (مثلا &httpd.conf;) 
+   و &htaccess; پیکربندی APACHE تغییر دهید. شما نیاز به تنظیم دسترسی "AllowOverride Options"
+   یا "AllowOverride All" برای انجام آن دارید.
    </simpara>
    
    <para>
-    There are several Apache directives that allow you
-    to change the PHP configuration from within the Apache configuration
-    files.  For a listing of which directives are
-    <constant>PHP_INI_ALL</constant>, <constant>PHP_INI_PERDIR</constant>,
-    or <constant>PHP_INI_SYSTEM</constant>, have a look at the
-    <link linkend="ini.list">List of php.ini directives</link> appendix.
+   دستورعمل های متعددی در APACHE وجود دارند که به شما امکان تغییر پیکربندی PHP را
+    در APACHE می‌دهند. برای لیستی از دستورعمل که <constant>PHP_INI_ALL</constant>، 
+    یا <constant>PHP_INI_PERDIR</constant>، یا <constant>PHP_INI_SYSTEM</constant>,
+    هستند، نکاهی بر پیوست  <link linkend="ini.list">لیست دستورعمل های php.ini</link> بندازید.
    </para>
    
    <para>
