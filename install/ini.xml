@@ -301,19 +301,19 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
      <varlistentry>
       <term>
        <systemitem role="directive">php_value</systemitem>
-       <parameter>name</parameter>
-       <parameter>value</parameter>
+       <parameter>نام</parameter>
+       <parameter>مقدار</parameter>
       </term>
       <listitem>
        <para>
-        Sets the value of the specified directive.
-        Can be used only with <constant>PHP_INI_ALL</constant> and <constant>PHP_INI_PERDIR</constant> type directives.
-        To clear a previously set value use <literal>none</literal> as the value.
+       مقدار دستورعمل مشخص شده را تنظیم می‌کند.
+       تنها با دستور های حالت <constant>PHP_INI_ALL</constant> و <constant>PHP_INI_PERDIR</constant> می‌تواند استفاده شود.
+       برای پاک‌کردن مقدار تنظیم شده قبلی از <literal>none</literal> به جای مقدار استفاده کنید.
        </para>
        <note>
         <simpara>
-         Don't use <systemitem role="directive">php_value</systemitem> to set boolean values.
-         <systemitem role="directive">php_flag</systemitem> (see below) should be used instead.
+        از <systemitem role="directive">php_value</systemitem> برای تنظیم مقادیر بولین استفاده نکنید.
+        <systemitem role="directive">php_flag</systemitem>  (پایین را ببینید) باید یه جای آن استفاده شود.
         </simpara>
        </note>
       </listitem>
@@ -321,45 +321,45 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
      <varlistentry>
       <term>
        <systemitem role="directive">php_flag</systemitem>
-       <parameter>name</parameter>
-       <parameter>on|off</parameter>
+       <parameter>نام</parameter>
+       <parameter>روشن|خاموش</parameter>
       </term>
       <listitem>
        <para>
-        Used to set a boolean configuration directive.
-        Can be used only with <constant>PHP_INI_ALL</constant> and
-        <constant>PHP_INI_PERDIR</constant> type directives.
+       برای تنظیم پیکربندی دستورعمل استفاده می‌شود.
+       تنها با دستورعمل های حالت <constant>PHP_INI_ALL</constant> و <constant>PHP_INI_PERDIR</constant> می‌تواند استفاده شود.
        </para>
       </listitem>
      </varlistentry>
      <varlistentry>
       <term>
        <systemitem role="directive">php_admin_value</systemitem>
-       <parameter>name</parameter>
-       <parameter>value</parameter>
+       <parameter>نام</parameter>
+       <parameter>مقدار</parameter>
       </term>
       <listitem>
        <para>
-        Sets the value of the specified directive.
-        This <emphasis>can not be used</emphasis> in &htaccess; files.
-        Any directive type set with <systemitem role="directive">php_admin_value</systemitem>
-        can not be overridden by &htaccess; or <function>ini_set</function>.
-        To clear a previously set value use <literal>none</literal> as the value.
+       مقدار دستورعمل مشخص را تنظیم می‌کند.
+       این  <emphasis>نمیتواند </emphasis> در فایل &htaccess; استفاده شود.
+       هیچ دستورعملی که با <systemitem role="directive">php_admin_value</systemitem>
+       شده باشد نمی‌تواند توسط &htaccess; یا <function>ini_set</function> رونویسی شود.
+        برای پاک‌کردن مقدار تنظیم شده قبلی از <literal>none</literal> به جای مقدار استفاده کنید.
        </para>
       </listitem>
      </varlistentry>
      <varlistentry>
       <term>
        <systemitem role="directive">php_admin_flag</systemitem>
-       <parameter>name</parameter>
-       <parameter>on|off</parameter>
+       <parameter>نام</parameter>
+       <parameter>روشن|خاموش</parameter>
       </term>
       <listitem>
        <para>
-        Used to set a boolean configuration directive.
-        This <emphasis>can not be used</emphasis> in &htaccess; files.
-        Any directive type set with <systemitem role="directive">php_admin_flag</systemitem>
-        can not be overridden by &htaccess; or <function>ini_set</function>.
+       برای تنظیم پیکربندی بولین دستورعمل استفاده می‌شود.
+        این  <emphasis>نمیتواند </emphasis> در فایل &htaccess; استفاده شود.
+       هیچ دستورعملی که با <systemitem role="directive">php_admin_value</systemitem>
+       شده باشد نمی‌تواند توسط &htaccess; یا <function>ini_set</function> رونویسی شود.
+        برای پاک‌کردن مقدار تنظیم شده قبلی از <literal>none</literal> به جای مقدار استفاده کنید
        </para>
       </listitem>
      </varlistentry>
@@ -367,7 +367,7 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
    </para>
    <para>
     <example>
-     <title>Apache configuration example</title>
+     <title>مثال پیکربندی آپاچی</title>
      <programlisting role="ini">
 <![CDATA[
 <IfModule mod_php5.c>
@@ -384,53 +384,44 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
    </para>
    <caution>
     <para>
-     PHP constants do not exist outside of PHP. For example, in
-     &httpd.conf; you can not use PHP constants
-     such as <constant>E_ALL</constant> or <constant>E_NOTICE</constant>
-     to set the <link linkend="ini.error-reporting">error_reporting</link>
-     directive as they will have no meaning and will evaluate to
-     <emphasis>0</emphasis>. Use the associated bitmask values instead.
-     These constants can be used in &php.ini;
+    ثابت های PHP خازج از آن وجود ندارند. به طور مثال در &httpd.conf;
+    شما نمی‌توانید از <constant>E_ALL</constant> یا <constant>E_NOTICE</constant>
+    برای تنظیم <link linkend="ini.error-reporting">گزارش ارور</link> دستورعمل ها 
+    استفاده کنید زیرا آن ها هیچ معنایی نخواند داشت و به عنوان <emphasis>0</emphasis> ارزش گذاری می‌شوند.
+    در عوض، از مقدار بیت‌ماسک مربوطه استفاده کنید. این ثابت ها می‌توانند در &php.ini; استفاده شوند.
     </para>
    </caution>
   </sect2>
   
   <sect2 xml:id="configuration.changes.windows">
-   <title>Changing PHP configuration via the Windows registry</title>
+   <title>تغییر پیکربندی PHP از ظریق ریجستری ویندوز</title>
    <simpara>
-    When running PHP on Windows, the configuration values can be
-    modified on a per-directory basis using the Windows registry. The
-    configuration values are stored in the registry key
-    <literal>HKLM\SOFTWARE\PHP\Per Directory Values</literal>,
-    in the sub-keys corresponding to the path names. For example, configuration
-    values for the directory <literal>c:\inetpub\wwwroot</literal> would
-    be stored in the key <literal>HKLM\SOFTWARE\PHP\Per Directory
-    Values\c\inetpub\wwwroot</literal>. The settings for the
-    directory would be active for any script running from this
-    directory or any subdirectory of it. The values under the key
-    should have the name of the PHP configuration directive and the
-    string value. PHP constants in the values are not parsed.
-    However, only configuration values changeable in
-    <constant>PHP_INI_USER</constant> can be set
-    this way, <constant>PHP_INI_PERDIR</constant> values can not,
-    because these configuration values are re-read for each request.
+   هنگام اجرای PHP در ویندوز، مقادیر پیکربندی را می توان بر اساس
+    هر دایرکتوری با استفاده از رجیستری ویندوز تغییر داد. مقادیر پیکربندی 
+    در کلید ریجستری <literal>HKLM\SOFTWARE\PHP\Per Directory Values</literal>
+    در کلیدهای فرعی مربوط به نام مسیر ها ذخیره می‌شوند. به عنوان مثال، مقادیر پیکربندی برای 
+    پوشه <literal>c:\inetpub\wwwroot</literal> 
+    در کلید <literal>HKLM\SOFTWARE\PHP\Per Directory Values\c\inetpub\wwwroot</literal>
+    ذخیره می‌شود. تنظیمات برای آن پوشه برای اسکریپتی در هر پوشه یا پوشه فرعی اجرا می‌شود فعال خواهد شد.
+    مقادیر زیر کلید باید دارای اسم پیکربندی دستورعمل PHP و مقدار رشته را داشته باشند. ثابت های PHP در مقادیر تجزیه نمی شوند.
+     با این حال، فقط مقادیر پیکربندی قابل تغییر در <constant>PHP_INI_USER</constant> را می توان
+      به این ترتیب تنظیم کرد، مقادیر <constant>PHP_INI_PERDIR</constant> نمی توانند، زیرا این مقادیر 
+      پیکربندی برای هر درخواست دوباره خوانده می شوند.
    </simpara>
   </sect2>
   
   <sect2 xml:id="configuration.changes.other">
-   <title>Other interfaces to PHP</title>
+   <title>سایر رابط های PHP</title>
    <para>
-    Regardless of how you run PHP, you can change certain values at runtime
-    of your scripts through <function>ini_set</function>. See the documentation
-    on the <function>ini_set</function> page for more information.
+   بدون توجه به چگونگی اجرا PHP، شما می‌توانید مقادیر مشخصی را در زمان اجرای اسکریپت 
+   توسط <function>ini_set</function> تغییر دهید. مستند آن را در  صفحه <function>ini_set</function>
+   برای اطلاعات بیشتر ببینید.
    </para>
    <para>
-    If you are interested in a complete list of configuration settings
-    on your system with their current values, you can execute the
-    <function>phpinfo</function> function, and review the resulting
-    page. You can also access the values of individual configuration
-    directives at runtime using <function>ini_get</function> or
-    <function>get_cfg_var</function>.
+   اگر شما به دیدن لیست کامل تنظیمات پیکربندی با مقادیر فعلی شان بر روی کامپیوتر خود علاقه‌مند هستید،‌
+    می‌توانید تابع  <function>phpinfo</function> را اجرا کنید و نتایج صفحه را بازبینی کنید. شما هم‌چنین 
+    می‌توانید به مقادیر پیکربندی هر یک از دستورعمل ها به وسیله <function>ini_get</function> 
+    یا <function>get_cfg_var</function> دسترسی پیدا کنید.
    </para>
   </sect2>
  </sect1>
