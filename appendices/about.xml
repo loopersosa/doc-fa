@@ -2,46 +2,43 @@
 <!-- $Revision$ -->
 
 <appendix xml:id="about" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>About the manual</title>
+ <title>درباره راهنما</title>
 
  <sect1 xml:id="about.formats">
-  <title>Formats</title>
+  <title>فرمت ها</title>
   <para>
-   The PHP manual is provided in several formats. These formats can be divided
-   into two groups: online readable formats, and downloadable packages.
+  راهنمای PHP در فرمت های متعددی فراهم شده‌است. این فرمت ها در دو 
+  دسته قرار می‌گیرند: فرمت های قابل خواندن آنلاین،‌ و بسته های قایل دانلود.
   </para>
   <note>
    <para>
-    Some publishers have made available printed versions of this manual. We
-    cannot recommend any of those, as they tend to become out-of-date very
-    quickly.
+   برخی از انتشاردهندگان نسخه های قابل پرینت این راهنما را فراهم کردند.
+   ما هیچ کدام از أت ها را به دلیل منسوخ شدن سریع آن ها، نمی‌توانیم پیشنهاد دهیم.
    </para>
   </note>
   <para>
-   The manual can be read online at the <link xlink:href="&url.php;">PHP.net website</link>.
-   The online version of the PHP manual has currently two
-   <acronym>CSS</acronym> stylesheets, web friendly and a printer-friendly stylesheet.
+  راهنما در <link xlink:href="&url.php;">PHP.net وبسایت</link> 
+  برای خواندن آنلاین موجود است. فرمت های آنلاین راهنمنای PHP دارای دو
+  ظاهر <acronym>CSS</acronym> است، وب‌دوست و چاپ‌دوست. 
   </para>
   <para>
-   Two notable advantages of the online manual over most of the offline formats is the
-   integration of <link linkend="about.notes">user-contributed
-   notes</link> and the <link xlink:href="&url.php.urlhowto;">URL shortcuts</link> that
-   may be used to get to the desired manual parts quickly. An obvious disadvantage is
-   the requirement to be online to view this edition of the manual.
+  برتری موردتوجه راهنمای آنلاین بر بیشتر نسخه های
+   آفلاین، <link linkend="about.notes">یادداشت های مشارکتی کار۰۹بران</link> 
+   و <link xlink:href="&url.php.urlhowto;">میانبرهای لینکی</link> که شاید 
+   برای دسترسی سریع به راهنما های دیگر می‌تواند استفاده بشود، هستند. و (متضاد−برتری)
+   آن نیز مشخصا نیاز به اینترنت برای دیدن آن ویرایش است.
   </para>
   <para>
-   There are several offline formats of the manual, and the most appropriate
-   format for depends on the operating system, and personal
-   reading style. For information on how the manual is generated in so many
-   formats, read the <link linkend="about.generate">'How we generate the
-   formats'</link> section of this appendix.
+  نسحه های متعددی از راهنما آفلاین وجود دارد، و مناسب ترین فرمت آن به سلیقه خواندنی و
+   سیستم عامل شما  بستگی دارد. برای اطلاعات درباره چگونگی ساخت راهنما در این تعداد از فرمت ها 
+   بخش  <link linkend="about.generate">'ما چگونه فرمت ها را می‌سازیم'</link> 
+   در پیوست را بخوانید.
   </para>
   <para>
-   The most cross-platform format of the manual is the HTML version. This
-   is provided both as a single HTML file and as a package of individual files
-   for each section (which results in a collection of several thousand files).
-   We provide these versions compressed, so a decompression utility is 
-   required to retrieve the files contained within the archives.
+  چندبستر ترین (cross-platform) فرمت راهنما نسخه HTML آن است. این هم به عنوان یک
+   فایل HTML منفرد و هم به عنوان بسته ای از فایل های جداگانه برای هر بخش (که منجر به مجموعه ای
+    از چندین هزار فایل می شود) ارائه می‌شود. ما این نسخه‌ها را به صورت فشرده ارائه می‌کنیم،
+     بنابراین برای بازیابی فایل‌های موجود در بایگانی، به یک ابزار رفع فشرده‌سازی نیاز است.
   </para>
   <!--
    The PDF version of the PHP Manual is "currently" unavailable. Perhaps
@@ -59,22 +56,18 @@
   </note>
   -->
   <para>
-   For Windows platforms, the <productname>Windows HTML Help</productname> 
-   version of the manual enhances the HTML format for use with the 
-   <productname>Windows HTML Help</productname> application. This
-   version provides full-text search, a full index, and bookmarking. Many
-   popular Windows PHP development environments also integrate with this
-   version of the documentation to provide easy access. CHM viewers for
-   Linux desktops are also available. Check out
-   <link xlink:href="&url.xchm;">xCHM</link> or
-   <link xlink:href="&url.gnochm;">GnoCHM</link>.
+  برای پلتفرم‌های ویندوز، نسخه <productname>کمک  HTML ویندوز </productname> از راهنما،
+   قالب HTML را برای استفاده با برنامه بهبود می‌بخشد. این نسخه جستجوی متن کامل، فهرست کامل و نشانه گذاری
+   را فراهم می‌کند. بسیاری از محیط های توسعه محبوب ویندوز PHP نیز با این نسخه از اسناد ادغام می‌شوند تا دسترسی
+   آسان را فراهم کنند. نمایشگرهای CHM برای دسکتاپ های لینوکس نیز در دسترس
+    هستند.<link xlink:href="&url.xchm;">xCHM</link> یا <link xlink:href="&url.gnochm;">GnoCHM</link> 
+    را بررسی کنید.
   </para>
   
   <para>
-   There is also an <link xlink:href="&url.php.echm;">extended CHM version</link>
-   available, which is updated less frequently, but provides many additional
-   features. It will only work on <productname>Microsoft Windows</productname>
-   though, because of the technologies used to build the help pages.
+  هم‌چنین  <link xlink:href="&url.php.echm;">نسخه های توسعه یافته CM</link> نیز موجود است که کمتر
+  به روز می شود، اما بسیاری از ویژگی های اضافی را ارائه می دهد. به دلیل فناوری‌هایی که برای ساخت صفحات راهنما استفاده می‌شود،
+   فقط روی <productname>مایکروسافت ویندوز</productname> کار می‌کند.
   </para>
  </sect1>
  
