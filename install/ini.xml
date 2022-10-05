@@ -1,99 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
 <chapter xml:id="configuration" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
- <title>Runtime Configuration</title>
+ <title>پیکربندی زمان‌اجرا</title>
  
  <sect1 xml:id="configuration.file">
-  <title>The configuration file</title>
+  <title>فایل پیکربندی</title>
   
   <simpara>
-   The configuration file (&php.ini;)
-   is read when PHP starts up. For the server module versions of PHP,
-   this happens only once when the web server is started. For the
-   <acronym>CGI</acronym> and <acronym>CLI</acronym> versions, it happens on
-   every invocation.
+   فایل پیکربندی  (&php.ini;) زمانی که برنامه اجرا می‌شود، خوانده می‌شود.
+  برای نسخه های ماژول PHP این فقط یک بار زمانی که وب سرور راه اندازی می شود اتفاق می افتد. برای
+   نسخه‌های <acronym>CGI</acronym> و <acronym>CLI</acronym>، این اتفاق در هر فراخوانی رخ می‌دهد.
+
+
   </simpara>
   <para>
-   &php.ini; is searched for in these locations (in order):
+   &php.ini; : در این آردس ها یافت می‌شود (به ترتیب)
    <itemizedlist>
     <listitem>
      <simpara>
-      SAPI module specific location (<literal>PHPIniDir</literal> directive
-      in Apache 2, <literal>-c</literal> command line option in CGI and CLI)
+     مکان خاص ماژول SAPI (دستورالعمل <literal>PHPIniDir</literal>
+      در آپاچی 2، گزینه خط فرمان <literal>-c</literal> در CGI و CLI)
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      The <varname>PHPRC</varname> environment variable.
+      متغیر طبیعی  <varname>PHPRC</varname> 
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      The location of the <literal>php.ini</literal> file
-      can be set for different versions of PHP. The root of the registry keys depends on 32- or 64-bitness of the installed OS and PHP.
-      For 32-bit PHP on a 32-bit OS or a 64-bit PHP on a 64-bit OS use <literal>[(HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</literal> for 32-bit version of PHP on a 64-bit OS use <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</literal>] instead.
-      For same bitness installation the following registry keys
-      are examined in order:
+      آدرس فایل  <literal>php.ini</literal> را می توان برای نسخه های مختلف PHP تنظیم کرد.
+       ریشه کلیدهای رجیستری به 32 یا 64 بیتی سیستم عامل و PHP نصب شده بستگی دارد. برای PHP 32 بیتی در
+       سیستم عامل 32 بیتی یا PHP 64 بیتی در سیستم عامل 64 بیتی، از <literal>[(HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</literal>
+       برای نسخه 32 بیتی PHP در سیستم عامل 64-بیتی استفاده کنید.
+        بیت OS از <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</literal>] استفاده می کند.
+      برای نصب بیتی مشابه کلیدهای رجیستری زیر را انجام دهید
+      به ترتیب بررسی می شوند:
       <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x.y.z]</literal>,
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x.y]</literal> and
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x]</literal>, where
-      x, y and z mean the PHP major, minor and release versions.
-      For 32 bit versions of PHP on a 64 bit OS the following registry keys are examined in order:
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x.y]</literal> و
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x]</literal>, 
+      که در آن x، y و z به معنای نسخه اصلی، مینور و نسخه PHP است.
+      برای نسخه های 32 بیتی PHP در سیستم عامل 64 بیتی، کلیدهای رجیستری زیر به ترتیب بررسی می شوند:
       <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y.z]</literal>,
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y]</literal> and
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x]</literal>, where
-      x, y and z mean the PHP major, minor and release versions.
-      If there is a
-      value for <literal>IniFilePath</literal> in any of these keys, the first
-      one found will be used as the location of the <literal>php.ini</literal>
-      (Windows only).
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y]</literal> و
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x]</literal>, 
+      که در آن x، y و z به معنای نسخه اصلی، مینور و نسخه PHP است.
+      اگر مقداری برای <literal>IniFilePath</literal> در هر یک از این کلیدها وجود داشته باشد،
+      اولین مورد یافت شده به عنوان مکان <literal>php.ini</literal> استفاده خواهد شد. (فقط ویندوز).
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</literal> or
-      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</literal>, value of
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</literal> یا
+      <literal>[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</literal>, مقدار
       <literal>IniFilePath</literal> (Windows only).
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      Current working directory (except CLI).
+      پوشه کاری فعلی (به جز CLI).
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      The web server's directory (for SAPI modules), or directory of PHP
-      (otherwise in Windows).
+      پوشه وب سرور (برای ماژول های SAPI)، یا پوشه PHP (در غیر این صورت در ویندوز).
      </simpara>
     </listitem>
     <listitem>
      <simpara>
-      Windows directory (<filename class="directory">C:\windows</filename>
-      or <filename class="directory">C:\winnt</filename>) (for Windows), or
-      <literal>--with-config-file-path</literal> compile time option.
+      پوشه ویندوز
+       (<filename class="directory">C:\windows</filename>
+      یا  <filename class="directory">C:\winnt</filename>) (برای ویندوز), یا
+      <literal>--with-config-file-path</literal> گزینه زمان کامپایل
      </simpara>
     </listitem>
    </itemizedlist>
   </para>
   <para>
-   If <filename>php-SAPI.ini</filename> exists (where SAPI is the SAPI in use,
-   so, for example, <filename>php-cli.ini</filename> or
-   <filename>php-apache.ini</filename>), it is used instead of &php.ini;.
-   The SAPI name can be determined with <function>php_sapi_name</function>.
+   اگر <filename>php-SAPI.ini</filename> وجود داشته باشد (که  SAPI در حال استفاده است، به عنوان مثال، <filename>php-cli.ini</filename> یا
+   <filename>php-apache.ini</filename>)، به جای &php.ini; استفاده می شود.
+نام SAPI را می توان با <function>php_sapi_name</function> تعیین کرد.
   </para>
   <note>
    <para>
-    The Apache web server changes the directory to root at startup, causing
-    PHP to attempt to read &php.ini; from the root filesystem if it exists.
+    وب سرور آپاچی هنگام استارت‌آپ پوشه را به حالت تغییر می‌دهد و باعث می‌شود PHP سعی کند فایل &php.ini را در صورت وجود بخواند.
    </para>
   </note>
   <para>
-   Using environment variables can be used in &php.ini; as shown below.
+   استفاده از متغیرهای محیطی در &php.ini; همانطور که در زیر نشان داده شده است.
   </para>
   <para>
    <example>
-    <title>&php.ini; Environment Variables</title>
+    <title>&php.ini; متغیر محیطی</title>
      <programlisting role="ini">
 <![CDATA[
 ; PHP_MEMORY_LIMIT is taken from environment
@@ -103,92 +101,81 @@ memory_limit = ${PHP_MEMORY_LIMIT}
     </example>
   </para>
   <para>
-   The &php.ini; directives handled by extensions are documented
-   on the respective pages of the extensions themselves. A <link linkend="ini">list of
-   the core directives</link> is available in the appendix. Not all
-   PHP directives are necessarily documented in this manual: for a complete list
-   of directives available in your PHP version, please read your well commented
-   &php.ini; file. Alternatively, you may find
-   <link xlink:href="&url.php.git.phpini;">the latest &php.ini;</link> from Git
-   helpful too.
+&php.ini; دستورالعمل هایی که توسط برنامه های افزودنی مدیریت می شوند در صفحات مربوطه خود برنامه های افزودنی مستند می شوند.
+ <link linkend="ini">لیست دستورالعمل های اصلی</link> در پیوست موجود است.
+  همه دستورالعمل‌های PHP لزوماً در این راهنما ثبت نمی‌شوند:
+  برای فهرست کامل دستورالعمل‌های موجود در نسخه PHP، لطفاً &php.ini خود را که به خوبی نظر داده شده است، بخوانید.
+   فایل همچنین، می‌توانید <link xlink:href="&url.php.git.phpini;">آخرین &php.ini;</link> را از Git بیابید.
+   نیز مفید است.
   </para>
   <para>
    <example>
-    <title>&php.ini; example</title>
+    <title>&php.ini; مثال</title>
     <programlisting role="ini">
 <![CDATA[
-; any text on a line after an unquoted semicolon (;) is ignored
-[php] ; section markers (text within square brackets) are also ignored
-; Boolean values can be set to either:
+; هر متنی در یک خط پس از نقطه ویرگول (;) نقل قول نشده نادیده گرفته می شود
+[php] ; نشانگرهای بخش (متن داخل پرانتز) نیز نادیده گرفته می شوند
+; مقادیر بولی را می توان به یکی از موارد زیر تنظیم کرد:
 ;    true, on, yes
 ; or false, off, no, none
 register_globals = off
 track_errors = yes
 
-; you can enclose strings in double-quotes
-include_path = ".:/usr/local/lib/php"
+;می توانید رشته ها را در دو گیومه قرار دهید
+شامل_مسیر = ".:/usr/local/lib/php"
 
-; backslashes are treated the same as any other character
-include_path = ".;c:\php\lib"
+; با بک‌اسلش مانند هر کاراکتر دیگری رفتار می شود
+شامل_مسیر = ".;c:\php\lib"
 ]]>
     </programlisting>
     <!-- TODO: add more details about values and expressions -->
    </example>
   </para>
   <para>
-   It is possible to refer to existing .ini variables from
-   within .ini files. Example: <literal>open_basedir = ${open_basedir}
+   می توان به متغیرهای .ini موجود در فایل های .ini اشاره کرد 
+   مثال : <literal>open_basedir = ${open_basedir}
    ":/new/dir"</literal>.
   </para>
   <sect2 xml:id="configuration.file.scan">
-   <title>Scan directories</title>
+   <title>اسکن  پوشه ها</title>
 
    <para>
-    It is possible to configure PHP to scan for .ini files in a directory
-    after reading &php.ini;. This can be done at compile time by setting the
-    <option role="configure">--with-config-file-scan-dir</option> option. 
-    The scan directory can then be overridden at run time
-    by setting the <varname>PHP_INI_SCAN_DIR</varname> environment variable.
+    پس از خواندن &php.ini; امکان پیکربندی فایل های PHP برای اسکن فایل‌های .ini وجود دارد و  در زمان کامپایل می‌توان آن را تنظیم کرد.
+    سپس با تنظیم متغیر محیطی <varname>PHP_INI_SCAN_DIR</varname>، دایرکتوری اسکن را می توان در زمان اجرا لغو کرد.
    </para>
 
    <para>
-    It is possible to scan multiple directories by separating them with the
-    platform-specific path separator (<literal>;</literal> on Windows, NetWare
-    and RISC OS; <literal>:</literal> on all other platforms; the value PHP is
-    using is available as the <constant>PATH_SEPARATOR</constant> constant).
-    If a blank directory is given in <varname>PHP_INI_SCAN_DIR</varname>, PHP
-    will also scan the directory given at compile time via
-    <option role="configure">--with-config-file-scan-dir</option>.
+    اسکن چندین دایرکتوری با جدا کردن آنها با
+    جداکننده مسیر مخصوص پلتفرم (<literal>;</literal> در Windows، NetWare
+    و RISC OS امکانپذیر است;
+    تمامی پلتفرم‌های دیگر؛ مقدار PHP است
+    در تمامی پلتفرم‌های دیگر مقداری که PHP استفاده می کند به عنوان ثابت <constant>PATH_SEPARATOR</constant> در دسترس است.
+    اگر پوشه خالی در <varname>PHP_INI_SCAN_DIR</varname> داده شود، PHP
+    همچنین دایرکتوری داده شده در زمان کامپایل را از طریق  <option role="configure">--with-config-file-scan-dir</option> اسکن می کند.
    </para>
 
    <para>
-    Within each directory, PHP will scan all files ending in
-    <literal>.ini</literal> in alphabetical order. A list of the files that
-    were loaded, and in what order, is available by calling
-    <function>php_ini_scanned_files</function>, or by running PHP with the
-    <option>--ini</option> option.
+    درون هر پوشه،‌ PHP تمام فایل ها با پسوند <literal>.ini</literal> را به ترتیب حروف الفبا اسکن می‌کند.
+    لیستی از فایل هایی که بارگزاری شدند، ترتیب آنها با فراخوانی دستور  <function>php_ini_scanned_files</function> ،و یا با ران کردن PHP با گزینه <option>--ini</option> امکان‌پذیر است.
    </para>
 
    <informalexample>
     <screen>
 <![CDATA[
-Assuming PHP is configured with --with-config-file-scan-dir=/etc/php.d,
-and that the path separator is :...
+با فرض پیکربرندی شدن PHP توسط --with-config-file-scan-dir=/etc/php.d,
+و این آدرس جداکننده است : ...
 
 $ php
-  PHP will load all files in /etc/php.d/*.ini as configuration files.
-
+  PHP تمام فایل های درون  /etc/php.d/*.ini را به عنوان فایل های پیکربندی بارگذاری می‌کند. 
+  
 $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d php
-  PHP will load all files in /usr/local/etc/php.d/*.ini as
-  configuration files.
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
 
 $ PHP_INI_SCAN_DIR=:/usr/local/etc/php.d php
-  PHP will load all files in /etc/php.d/*.ini, then
-  /usr/local/etc/php.d/*.ini as configuration files.
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
 
 $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
-  PHP will load all files in /usr/local/etc/php.d/*.ini, then
-  /etc/php.d/*.ini as configuration files.
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
 ]]>
     </screen>
    </informalexample>
@@ -196,102 +183,97 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
  </sect1>
  
  <sect1 xml:id="configuration.file.per-user">
-  <title>.user.ini files</title>
+  <title>.user.ini فایل های</title>
   
   <simpara>
-   PHP includes support for configuration INI files on a
-   per-directory basis. These files are processed <emphasis>only</emphasis> by
-   the CGI/FastCGI SAPI. This functionality obsoletes the PECL htscanner
-   extension. If you are running PHP as Apache module, use &htaccess; files for the same
-   effect.
+   PHP پشتیبانی از پیکربندی فایل های INI را در پوشه بر اساس هر پوشه شامل می‌شود.
+   این فایل  <emphasis>تنها</emphasis> توسط CGI/FastCGI SAPI پردازش می‌شوند.
+   این عملکرد اساس فهرست برنامه افزودنی PECL htscanner را منسوخ می کند.
+   اگر شما PHP را بر روی ماژول APACHE اجرا می‌کنید، از فایل های &htaccess; برای اثر مشابه استفاده کنید.
   </simpara>
   
   <simpara>
-   In addition to the main &php.ini; file, PHP scans for INI files in each
-   directory, starting with the directory of the requested PHP file, and
-   working its way up to the current document root (as set in
-   <varname>$_SERVER['DOCUMENT_ROOT']</varname>). In case the PHP file is
-   outside the document root, only its directory is scanned.
+  علاوه‌بر کل فایل &php.ini; PHP با شروع از پوشه‌ای که فایل PHP درخواست شده در آن وجود دارد
+    تا به پوشه فعلی روت (همانطور که در <varname>$_SERVER['DOCUMENT_ROOT']</varname> تنظیم شده است)
+     برای تمام فایل ها با پسوند .ini اسکن می‌کند.
   </simpara>
   <simpara>
-   Only INI settings with the
-   modes <constant>PHP_INI_PERDIR</constant> and
-   <constant>PHP_INI_USER</constant> will be recognized in .user.ini-style INI
-   files.
+  تنها فایل های INI با تنظیمات حالت  <constant>PHP_INI_PERDIR</constant>  و  <constant>PHP_INI_USER</constant> توسط فایل های INI شناخته خواهندشد.
   </simpara>
   
   <simpara>
-   Two new INI directives,
-   <link linkend="ini.user-ini.filename">user_ini.filename</link> and
+  دو دستورعمل جدید INI،
+     <link linkend="ini.user-ini.filename">user_ini.filename</link> و
    <link linkend="ini.user-ini.cache-ttl">user_ini.cache_ttl</link>
-   control the use of user INI files.
+   کنترل فایل های INI کاربر را به عهده می‌گیرند.
   </simpara>
   
   <simpara>
-   <link linkend="ini.user-ini.filename">user_ini.filename</link> sets the name of the file PHP looks for
-   in each directory; if set to an empty string, PHP doesn't scan at all. The
-   default is <literal>.user.ini</literal>.
+
+  <link linkend="ini.user-ini.filename">user_ini.filename</link> نام فایل مورد نظر PHP را در هر دایرکتوری تعیین می کند;
+   اگر روی یک رشته خالی تنظیم شود، PHP اصلا اسکن نمی کند. را
+   پیش فرض <literal>.user.ini</literal> است
   </simpara>
   
   <simpara>
-   <link linkend="ini.user-ini.cache-ttl">user_ini.cache_ttl</link> controls how often user INI files are
-   re-read. The default is 300 seconds (5 minutes).
+   <link linkend="ini.user-ini.cache-ttl">user_ini.cache_ttl</link> تعداد دفعات بازخوانی فایل های INI کاربر را کنترل می کند. پیش فرض 300 ثانیه (5 دقیقه) است.
   </simpara>
  </sect1>
  
  <sect1 xml:id="configuration.changes.modes">
-  <title>Where a configuration setting may be set</title>
+  <title>جایی که تنظیمات پیکربندی انجام می‌شود</title>
   
   <para>
-   These modes determine when and where a PHP directive may or may not
-   be set, and each directive within the manual refers to one of these
-   modes. For example, some settings may be set within a PHP script
-   using <function>ini_set</function>, whereas others may require
-   &php.ini; or &httpd.conf;.
+  این حالت ها تایین می‌کنند که چه زمانی و چه مکانی دستوزعمل PHP 
+  بتواند یا نتواند تنظیم شود، و هر دستورالعمل در دفترچه راهنما به یکی
+   از این حالت ها اشاره دارد. به عنوان مثال، بعضی از تنظیمات ممکن است
+   در اسکریپت PHP با استفاده از <function>ini_set</function>،
+    تنظیم شوند، درحالیکه بقیه نیاز به &php.ini;، یا &httpd.conf; دارند.
   </para>
   
   <para>
-   For example, the
-   <link linkend="ini.output-buffering">output_buffering</link> setting
-   is <literal>PHP_INI_PERDIR</literal> therefore it may not be set using
-   <function>ini_set</function>. However, the
-   <link linkend="ini.display-errors">display_errors</link> directive is
-   <literal>PHP_INI_ALL</literal> therefore it may be set anywhere,
-   including with <function>ini_set</function>.
+   به عنوان مثال، 
+   تنظیمات  <link linkend="ini.output-buffering">بافر خروحی </link> 
+   <literal>PHP_INI_PERDIR</literal> است، بنابراین ممکن است با 
+   <function>ini_set</function> تنظیم شود. اما، دستورعمل 
+   <link linkend="ini.display-errors">display_errors</link> <literal>PHP_INI_ALL</literal> است
+   بنابراین، می‌توانند هزجایی تنظیم شوند که شامل <function>ini_set</function>
+   نیز می‌شود.
   </para>
   
   <para>
    <table>
-    <title>Definition of PHP_INI_* modes</title>
+    <title>تعریف حالت های PHP_INI_* </title>
     <tgroup cols="2">
      <thead>
       <row>
-       <entry>Mode</entry>
-       <entry>Meaning</entry>
+       <entry>حالت</entry>
+       <entry>معنی</entry>
       </row>
      </thead>
      <tbody>
       <row>
        <entry><literal>PHP_INI_USER</literal></entry>
        <entry>
-        Entry can be set in user scripts (like with <function>ini_set</function>)
-        or in the <link linkend="configuration.changes.windows">Windows registry</link>.
-        Entry can be set in &user-ini;
+       ورودی می‌تواند در اسکریپت کاربر (مانند <function>ini_set</function>)
+       یا در لینک <link linkend="configuration.changes.windows">ثبت نام ویندوز</link>
+    تنظیم شود.
+    ورودی می‌تواند در &user-ini; تنظیم شود
        </entry>
       </row>
       <row>
        <entry><literal>PHP_INI_PERDIR</literal></entry>
        <entry>
-        Entry can be set in &php.ini;, &htaccess;, &httpd.conf; or &user-ini;
+        ورودی می‌تواند در  &php.ini;, &htaccess;, &httpd.conf; یا &user-ini; تنظیم شود.
        </entry>
       </row>
       <row>
        <entry><literal>PHP_INI_SYSTEM</literal></entry>
-       <entry>Entry can be set in &php.ini; or &httpd.conf;</entry>
+       <entry>ورودی می‌تواند در &php.ini; یا  &httpd.conf;</entry> تنظیم شود.
       </row>
       <row>
        <entry><literal>PHP_INI_ALL</literal></entry>
-       <entry>Entry can be set anywhere</entry>
+       <entry>ورودی می‌تواند همه جا تنظیم شود</entry>
       </row>
      </tbody>
     </tgroup>
@@ -300,24 +282,22 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
  </sect1>
  
  <sect1 xml:id="configuration.changes">
-  <title>How to change configuration settings</title>
+  <title>چگونه تنظیمات پیکربندی را تغییر دهیم</title>
   
   <sect2 xml:id="configuration.changes.apache">
-   <title>Running PHP as an Apache module</title>
+   <title>PHP را به عنوان ماژول APACHE اجرا می‌کنید</title>
    <simpara>
-    When using PHP as an Apache module, you can also change the
-    configuration settings using directives in Apache configuration
-    files (e.g. &httpd.conf;) and &htaccess; files. You will need
-    "AllowOverride Options" or "AllowOverride All" privileges to do so.
+   هتکام استفاده از PHP به عنوان ماژول APACHE، شما همچنان می‌توانید
+   تنظیمات پیکربندی را با استفاده از دستورعمل ها در فایل های (مثلا &httpd.conf;) 
+   و &htaccess; پیکربندی APACHE تغییر دهید. شما نیاز به تنظیم دسترسی "AllowOverride Options"
+   یا "AllowOverride All" برای انجام آن دارید.
    </simpara>
    
    <para>
-    There are several Apache directives that allow you
-    to change the PHP configuration from within the Apache configuration
-    files.  For a listing of which directives are
-    <constant>PHP_INI_ALL</constant>, <constant>PHP_INI_PERDIR</constant>,
-    or <constant>PHP_INI_SYSTEM</constant>, have a look at the
-    <link linkend="ini.list">List of php.ini directives</link> appendix.
+   دستورعمل های متعددی در APACHE وجود دارند که به شما امکان تغییر پیکربندی PHP را
+    در APACHE می‌دهند. برای لیستی از دستورعمل که <constant>PHP_INI_ALL</constant>، 
+    یا <constant>PHP_INI_PERDIR</constant>، یا <constant>PHP_INI_SYSTEM</constant>,
+    هستند، نکاهی بر پیوست  <link linkend="ini.list">لیست دستورعمل های php.ini</link> بندازید.
    </para>
    
    <para>
@@ -325,19 +305,19 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
      <varlistentry>
       <term>
        <systemitem role="directive">php_value</systemitem>
-       <parameter>name</parameter>
-       <parameter>value</parameter>
+       <parameter>نام</parameter>
+       <parameter>مقدار</parameter>
       </term>
       <listitem>
        <para>
-        Sets the value of the specified directive.
-        Can be used only with <constant>PHP_INI_ALL</constant> and <constant>PHP_INI_PERDIR</constant> type directives.
-        To clear a previously set value use <literal>none</literal> as the value.
+       مقدار دستورعمل مشخص شده را تنظیم می‌کند.
+       تنها با دستور های حالت <constant>PHP_INI_ALL</constant> و <constant>PHP_INI_PERDIR</constant> می‌تواند استفاده شود.
+       برای پاک‌کردن مقدار تنظیم شده قبلی از <literal>none</literal> به جای مقدار استفاده کنید.
        </para>
        <note>
         <simpara>
-         Don't use <systemitem role="directive">php_value</systemitem> to set boolean values.
-         <systemitem role="directive">php_flag</systemitem> (see below) should be used instead.
+        از <systemitem role="directive">php_value</systemitem> برای تنظیم مقادیر بولین استفاده نکنید.
+        <systemitem role="directive">php_flag</systemitem>  (پایین را ببینید) باید یه جای آن استفاده شود.
         </simpara>
        </note>
       </listitem>
@@ -345,45 +325,45 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
      <varlistentry>
       <term>
        <systemitem role="directive">php_flag</systemitem>
-       <parameter>name</parameter>
-       <parameter>on|off</parameter>
+       <parameter>نام</parameter>
+       <parameter>روشن|خاموش</parameter>
       </term>
       <listitem>
        <para>
-        Used to set a boolean configuration directive.
-        Can be used only with <constant>PHP_INI_ALL</constant> and
-        <constant>PHP_INI_PERDIR</constant> type directives.
+       برای تنظیم پیکربندی دستورعمل استفاده می‌شود.
+       تنها با دستورعمل های حالت <constant>PHP_INI_ALL</constant> و <constant>PHP_INI_PERDIR</constant> می‌تواند استفاده شود.
        </para>
       </listitem>
      </varlistentry>
      <varlistentry>
       <term>
        <systemitem role="directive">php_admin_value</systemitem>
-       <parameter>name</parameter>
-       <parameter>value</parameter>
+       <parameter>نام</parameter>
+       <parameter>مقدار</parameter>
       </term>
       <listitem>
        <para>
-        Sets the value of the specified directive.
-        This <emphasis>can not be used</emphasis> in &htaccess; files.
-        Any directive type set with <systemitem role="directive">php_admin_value</systemitem>
-        can not be overridden by &htaccess; or <function>ini_set</function>.
-        To clear a previously set value use <literal>none</literal> as the value.
+       مقدار دستورعمل مشخص را تنظیم می‌کند.
+       این  <emphasis>نمیتواند </emphasis> در فایل &htaccess; استفاده شود.
+       هیچ دستورعملی که با <systemitem role="directive">php_admin_value</systemitem>
+       شده باشد نمی‌تواند توسط &htaccess; یا <function>ini_set</function> رونویسی شود.
+        برای پاک‌کردن مقدار تنظیم شده قبلی از <literal>none</literal> به جای مقدار استفاده کنید.
        </para>
       </listitem>
      </varlistentry>
      <varlistentry>
       <term>
        <systemitem role="directive">php_admin_flag</systemitem>
-       <parameter>name</parameter>
-       <parameter>on|off</parameter>
+       <parameter>نام</parameter>
+       <parameter>روشن|خاموش</parameter>
       </term>
       <listitem>
        <para>
-        Used to set a boolean configuration directive.
-        This <emphasis>can not be used</emphasis> in &htaccess; files.
-        Any directive type set with <systemitem role="directive">php_admin_flag</systemitem>
-        can not be overridden by &htaccess; or <function>ini_set</function>.
+       برای تنظیم پیکربندی بولین دستورعمل استفاده می‌شود.
+        این  <emphasis>نمیتواند </emphasis> در فایل &htaccess; استفاده شود.
+       هیچ دستورعملی که با <systemitem role="directive">php_admin_value</systemitem>
+       شده باشد نمی‌تواند توسط &htaccess; یا <function>ini_set</function> رونویسی شود.
+        برای پاک‌کردن مقدار تنظیم شده قبلی از <literal>none</literal> به جای مقدار استفاده کنید
        </para>
       </listitem>
      </varlistentry>
@@ -391,7 +371,7 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
    </para>
    <para>
     <example>
-     <title>Apache configuration example</title>
+     <title>مثال پیکربندی آپاچی</title>
      <programlisting role="ini">
 <![CDATA[
 <IfModule mod_php5.c>
@@ -408,53 +388,44 @@ $ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
    </para>
    <caution>
     <para>
-     PHP constants do not exist outside of PHP. For example, in
-     &httpd.conf; you can not use PHP constants
-     such as <constant>E_ALL</constant> or <constant>E_NOTICE</constant>
-     to set the <link linkend="ini.error-reporting">error_reporting</link>
-     directive as they will have no meaning and will evaluate to
-     <emphasis>0</emphasis>. Use the associated bitmask values instead.
-     These constants can be used in &php.ini;
+    ثابت های PHP خازج از آن وجود ندارند. به طور مثال در &httpd.conf;
+    شما نمی‌توانید از <constant>E_ALL</constant> یا <constant>E_NOTICE</constant>
+    برای تنظیم <link linkend="ini.error-reporting">گزارش ارور</link> دستورعمل ها 
+    استفاده کنید زیرا آن ها هیچ معنایی نخواند داشت و به عنوان <emphasis>0</emphasis> ارزش گذاری می‌شوند.
+    در عوض، از مقدار بیت‌ماسک مربوطه استفاده کنید. این ثابت ها می‌توانند در &php.ini; استفاده شوند.
     </para>
    </caution>
   </sect2>
   
   <sect2 xml:id="configuration.changes.windows">
-   <title>Changing PHP configuration via the Windows registry</title>
+   <title>تغییر پیکربندی PHP از ظریق ریجستری ویندوز</title>
    <simpara>
-    When running PHP on Windows, the configuration values can be
-    modified on a per-directory basis using the Windows registry. The
-    configuration values are stored in the registry key
-    <literal>HKLM\SOFTWARE\PHP\Per Directory Values</literal>,
-    in the sub-keys corresponding to the path names. For example, configuration
-    values for the directory <literal>c:\inetpub\wwwroot</literal> would
-    be stored in the key <literal>HKLM\SOFTWARE\PHP\Per Directory
-    Values\c\inetpub\wwwroot</literal>. The settings for the
-    directory would be active for any script running from this
-    directory or any subdirectory of it. The values under the key
-    should have the name of the PHP configuration directive and the
-    string value. PHP constants in the values are not parsed.
-    However, only configuration values changeable in
-    <constant>PHP_INI_USER</constant> can be set
-    this way, <constant>PHP_INI_PERDIR</constant> values can not,
-    because these configuration values are re-read for each request.
+   هنگام اجرای PHP در ویندوز، مقادیر پیکربندی را می توان بر اساس
+    هر دایرکتوری با استفاده از رجیستری ویندوز تغییر داد. مقادیر پیکربندی 
+    در کلید ریجستری <literal>HKLM\SOFTWARE\PHP\Per Directory Values</literal>
+    در کلیدهای فرعی مربوط به نام مسیر ها ذخیره می‌شوند. به عنوان مثال، مقادیر پیکربندی برای 
+    پوشه <literal>c:\inetpub\wwwroot</literal> 
+    در کلید <literal>HKLM\SOFTWARE\PHP\Per Directory Values\c\inetpub\wwwroot</literal>
+    ذخیره می‌شود. تنظیمات برای آن پوشه برای اسکریپتی در هر پوشه یا پوشه فرعی اجرا می‌شود فعال خواهد شد.
+    مقادیر زیر کلید باید دارای اسم پیکربندی دستورعمل PHP و مقدار رشته را داشته باشند. ثابت های PHP در مقادیر تجزیه نمی شوند.
+     با این حال، فقط مقادیر پیکربندی قابل تغییر در <constant>PHP_INI_USER</constant> را می توان
+      به این ترتیب تنظیم کرد، مقادیر <constant>PHP_INI_PERDIR</constant> نمی توانند، زیرا این مقادیر 
+      پیکربندی برای هر درخواست دوباره خوانده می شوند.
    </simpara>
   </sect2>
   
   <sect2 xml:id="configuration.changes.other">
-   <title>Other interfaces to PHP</title>
+   <title>سایر رابط های PHP</title>
    <para>
-    Regardless of how you run PHP, you can change certain values at runtime
-    of your scripts through <function>ini_set</function>. See the documentation
-    on the <function>ini_set</function> page for more information.
+   بدون توجه به چگونگی اجرا PHP، شما می‌توانید مقادیر مشخصی را در زمان اجرای اسکریپت 
+   توسط <function>ini_set</function> تغییر دهید. مستند آن را در  صفحه <function>ini_set</function>
+   برای اطلاعات بیشتر ببینید.
    </para>
    <para>
-    If you are interested in a complete list of configuration settings
-    on your system with their current values, you can execute the
-    <function>phpinfo</function> function, and review the resulting
-    page. You can also access the values of individual configuration
-    directives at runtime using <function>ini_get</function> or
-    <function>get_cfg_var</function>.
+   اگر شما به دیدن لیست کامل تنظیمات پیکربندی با مقادیر فعلی شان بر روی کامپیوتر خود علاقه‌مند هستید،‌
+    می‌توانید تابع  <function>phpinfo</function> را اجرا کنید و نتایج صفحه را بازبینی کنید. شما هم‌چنین 
+    می‌توانید به مقادیر پیکربندی هر یک از دستورعمل ها به وسیله <function>ini_get</function> 
+    یا <function>get_cfg_var</function> دسترسی پیدا کنید.
    </para>
   </sect2>
  </sect1>
