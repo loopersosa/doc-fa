@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
  <chapter xml:id="introduction" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <info><title>Introduction</title></info>
+  <info><title>مقدمه</title></info>
 
   <section xml:id="intro-whatis">
-   <info><title>What is PHP?</title></info>
+   <info><title>PHP چیست؟</title></info>
    <para>
-    <acronym>PHP</acronym> (recursive acronym for <literal>PHP: Hypertext
-    Preprocessor</literal>) is a widely-used open source general-purpose
-    scripting language that is especially suited for web
-    development and can be embedded into HTML.
+    <acronym>PHP</acronym> (مخفف <literal>PHP: Hypertext
+    Preprocessor</literal>) یک زبان پرکاربرد، متن باز و چند منظوره
+    اسکریپت نویسی ازت که به شکل خاص مناسب توسعه
+    وب است و قابلیت تعبیه به درون HTML را داراست.
    </para>
    <para>
-    Nice, but what does that mean? An example:
+    ایول، اما یعنی چه؟ مثال:
    </para>
    <para>
     <example>
-     <info><title>An introductory example</title></info>
+     <info><title>یک مثال جهت معرفی</title></info>
      <programlisting role="php">
 <![CDATA[
 <!DOCTYPE html>
@@ -37,22 +37,20 @@
     </example>
    </para>
    <para>
-    Instead of lots of commands to output HTML (as seen in C or Perl),
-    PHP pages contain HTML with embedded code that does
-    "something" (in this case, output "Hi, I'm a PHP script!").
-    The PHP code is enclosed in special <link
-    linkend="language.basic-syntax.phpmode">start and end processing
-    instructions <code>&lt;?php</code> and <code>?&gt;</code></link>
-    that allow you to jump into and out of "PHP mode."
+   به جای استفاده از دستور های فراوان برای خروجی HTML گرفتن (مثل C یا Perl)،
+    صفحات PHP می‌توانند شامل HTML به همراه کد تعبیه شده ای باشند که
+    "کاری" (در این مورد، خروجی دادن "Hi, I'm a PHP script!") انجام می‌دهد.
+    کد PHP درون <link
+    linkend="language.basic-syntax.phpmode">عملگر های مخصوص شروع و پایان پردازش <code>&lt;?php</code> و <code>?&gt;</code></link>
+    قرار می‌گیرد که به شما اجازه ورود و خروج به "وضعیت PHP" را می‌دهد.
    </para>
    <para>
-    What distinguishes PHP from something like client-side JavaScript
-    is that the code is executed on the server, generating HTML which
-    is then sent to the client. The client would receive
-    the results of running that script, but would not know
-    what the underlying code was. You can even configure your web server
-    to process all your HTML files with PHP, and then there's really no
-    way that users can tell what you have up your sleeve.
+    چیزی که PHP را از زبان سمت کاربری مثل JavaScript متمایز می‌کند
+    این است که کد روی سرور اجرا می‌شود، جهت تولید HTML
+    که به کاربر فرستاده می‌شود. کاربر نتیجه اجرای اسکریپت روی سرور را دریافت خواهد کرد
+    اما نخواهد دانست که کد مربوطه چه بوده. شما می‌توانید وب‌سرور خود را
+    جوری تنظیم کنید که تمام فایلهای HTML را با PHP پردازش کند و
+    در نتیجه واقعا هیچ راهی برای کاربر وجود ندارد که پی ببرد چه در آستین دارید.
    </para>
    <para>
     The best part about using PHP is that it is extremely simple

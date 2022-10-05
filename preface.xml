@@ -2,7 +2,7 @@
 <!-- $Revision$ -->
 
 <preface xml:id="preface" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://docbook.org/ns/docbook">
- <info><title>Preface</title>
+ <info><title>پیش گفتار</title>
  <abstract>
   <simpara>
    <acronym>PHP</acronym>, که مخفف &quot;<literal>PHP: Hypertext
@@ -26,12 +26,12 @@
   information.
  </para>
  <para>
-  You can download this manual in several formats at <link
-  xlink:href="&url.php.doc.downloads;">&url.php.doc.downloads;</link>.
-  More information about how this manual is developed can be found in the
-  <link linkend="about">'About the manual'</link> appendix. If you are
-  interested in the <link linkend="history">history of PHP</link>,
-  visit the relevant appendix.
+  شما می‌توانید این راهنما را در فرمت های مختلف از <link
+  xlink:href="&url.php.doc.downloads;">&url.php.doc.downloads;</link> دریافت کنید.
+  اطلاعات بیشتر درباره چگونگی توسعه این راهنما از پانویس
+  <link linkend="about">'درباره راهنما'</link> قابل دریافت است. اگر مشتاق به
+  دانستن <link linkend="history">تاریخچه PHP</link> هستید،
+  پانویس مربوطه را بازدید کنید.
  </para>
   
  &contributors;
