@@ -215,8 +215,9 @@ strlen ( string $string ) : int
    صفحه راهنما را برای جزئیات تابع و چگونگی عملکرد آن ببینید.
     </para>
     <para> 
-     In addition the &amp; (ampersand) symbol prepended to a function parameter 
-     allows the parameter to be passed by <link linkend="language.references.pass">reference</link>, as seen below: 
+    علاوه بر این، نماد &amp; (امپرسند) که به یک پارامتر تابع اضافه شده است، اجازه می دهد تا پارامتر 
+    با <link linkend="language.references.pass">مرجع</link> ارسال شود، همانطور که
+     در زیر مشاهده می کنید:
     </para>
     <para>
      <screen> 
@@ -227,12 +228,12 @@ strlen ( string $string ) : int
      </screen>
     </para>
     <para>
-     In this example, we can see the third optional parameter <parameter>&amp;$matches</parameter> will be 
-     passed as reference. 
+    در این مثال می‌توانیم پارامتر دلخواه سوم <parameter>&amp;$matches</parameter> را 
+    ببینیم به عنوان مرجع داده می‌شود. as reference. 
     </para>
     <para>
-     There are also functions with more complex PHP version information. Take
-     <function>html_entity_decode</function> as an example:
+    هم‌چنین توابعی با اطلاعات پیچیده تری درباره نسخه PHP وجود دارند.  <function>html_entity_decode</function>
+    را به عنوان مثال در نظر بگیرید:
     </para>
     <para>
      <screen>    
@@ -242,186 +243,153 @@ strlen ( string $string ) : int
      </screen>
     </para>
     <para>
-     This means that this function has only been
-     available in a released version since PHP 4.3.0. 
+    این به آن معنی است که این تابع تنها در نسخه های بعد از PHP 4.3.0 به بعد موجود شده است.
     </para>
  </sect1>
  
  <sect1 xml:id="about.phpversions">
-  <title>PHP versions documented in this manual</title>
+  <title>نسخه های PHP مستند شده در این راهنما</title>
   <para>
-   The manual contains information about past, current, and future versions
-   of PHP. Changes in behaviour are documented as notes, changelogs, and 
-   inline text within the manual pages. 
-   The earliest documented version is PHP 7.0.0.
+    راهنما حاوی اطلاعاتی در مورد نسخه های گذشته، فعلی و آینده از PHP x است.
+    تغییرات در رفتار به صورت یادداشت، لاگ تغییرات و متن درون خطی در صفحات 
+    راهنما اولین نسخه مستند PHP 7.0.0 است.
   </para>
   <para>
-   When documentation exists for the latest (unreleased) developmental versions
-   of PHP, it will be labeled as either "available in Git" or "development
-   version." And while these changes should be planned for, in rare cases they
-   may change.
+    هنگامی که اسنادی برای آخرین نسخه های توسعه یافته (منتشر نشده) PHP وجود داشته باشد،
+     به عنوان "در دسترس در Git" یا "نسخه توسعه" برچسب گذاری می شود. و در حالی که 
+     این تغییرات باید برای آنها برنامه ریزی شود، در موارد نادر ممکن است تغییر کنند.
   </para>
   <para>
-   All development takes place in Git and may be checked out
-   as described within the <link xlink:href="&url.php.anongit;">anonymous Git
-   access</link> page.
+    تمام توسعه ها در کیت اتفاق می‌افند و از طریق
+    صفحه <link xlink:href="&url.php.anongit;">دسترسی ناشناس گیت</link> 
+    می‌توانند بررسی شوند.
+  </para>
+  <para>، 
+    و برای شفافیت، راهنما به عرضه های ماژور، مینور و نقطه اشاره می‌کند. با 
+    در نظر گرفتنPHP <literal>7.3.1</literal>  به عنوان مثال، 
+    عدد<emphasis>7</emphasis> به عرضه ماژور، <emphasis>3</emphasis> به 
+    عرضه مینور و <emphasis>1</emphasis> به عرضه نقطه ای آن شاره می‌کند. به طور معمول PHP
+    فقط ویژگی‌های جدید را به نسخه‌های ماژور و مینور اضافه می‌کند و باگ‌ها را در
+    نسخه‌های نقطه‌ای برطرف می‌کند. با این حال، این قرارداد همیشه درست نیست.
   </para>
   <para>
-   And to clarify, the manual will refer to major, minor and point PHP releases.
-   Using PHP <literal>7.3.1</literal> as an example, the <emphasis>7</emphasis>
-   refers to the major version, <emphasis>3</emphasis> to minor, and
-   <emphasis>1</emphasis> is the point release. Typically PHP only adds new features
-   to major and minor releases, and fixes bugs in point releases. However, this
-   convention is not always true.
+    همچنین توجه داشته باشید که راهنمای PHP حتی برای ویژگی های مستند که هنوز در دسترس نیستند،
+    در زمان حال نوشته شده است، نه زمان آینده، دلیل این امر این است که راهنما می تواند آزمایش زمان
+    را تحمل کند، بنابراین با هر روز رسانی نیازی به بروزرسانی  زبان خسته کننده ندارد .
   </para>
   <para>
-   Also note that the PHP manual is written in present tense, not future tense,
-   even for documented features that are not yet available. The reason for this
-   is so the manual can stand the test of time, thus not require tedious grammar
-   updates with every PHP release.
-  </para>
-  <para>
-   Many times the PHP manual lists "Default Values" for PHP directives. These 
-   values are based on how PHP behaves without a &php.ini; configuration file,
-   so this may differ from values found in the distributed
-   <filename>php.ini-development</filename> and <filename>php.ini-production</filename>
-   files. They also refer to the latest version of PHP, although changelog entries
-   do mention past values. See the <link linkend="ini.list">PHP directive 
-   appendix</link> for details regarding these values and changes.
+    بسیاری از اوقات راهنمای PHP "مقادیر پیش فرض" را برای دستورالعمل های PHP فهرست می کند.
+    این مقادیر بر اساس نحوه رفتار PHP بدون فایل پیکربندی &php.ini; هستند، بنابراین ممکن است با مقادیر موجود
+    در فایل های توزیع شده <filename>php.ini-development</filename> و <filename>php.ini-production</filename>
+    متفاوت باشد. اگرچه ورودی های تغییرات، تغییرات مقادیر گذشته را ذکر می کنند آنها همچنین به آخرین نسخه PHP اشاره می کنند،
+    برای جزئیات بیشتر در مورد این مقادیر و تغییرات به <link linkend="ini.list"> پیوست دستورعمل های PHP </link> مراجعه کنید.
   </para>
  </sect1>
    
  <sect1 xml:id="about.more">
-  <title>How to find more information about PHP</title>
+  <title>چگونه اطلاعات بیشتری درباره PHP پیدا کنیم</title>
   <para>
-   This manual does not attempt to provide instruction about general
-   programming practices. First-time - or even just beginning -
-   programmers may find it difficult to learn how to program in PHP using
-   this manual exclusively. Instead, seek out a text more oriented towards
-   beginners.
+    این راهنما سعی در ارائه دستورالعملی در مورد شیوه های برنامه نویسی عمومی ندارد. ممکن است 
+    برنامه نویسانی که برای اولین بار - یا حتی تازه‌کار  - یاد بگیرند که چگونه برنامه نویسی در PHP را
+    با استفاده از این کتابچه راهنمای منحصراً برنامه نویسی کنند، دشوار باشد. در عوض، به دنبال متنی
+    باشید که بیشتر برای مبتدیان باشد.
   </para>
   <para>
-   There are a number of active mailing lists for discussion on all aspects of
-   programming with PHP. If stuck with a problem, consider using these lists.
-   For support options, including mailing lists, view <link
-   xlink:href="&url.php.support;">the PHP.net support page</link>.
-  </para>
+    تعدادی لیست ایمیل فعال برای بحث در مورد تمام جنبه های برنامه نویسی با PHP وجود دارد.
+    اگر با مشکلی مواجه شدید، از این لیست ها استفاده کنید. برای گزینه های پشتیبانی،
+    از جمله لیست های ایمیل ها، <link xlink:href="&url.php.support;"> صفحه حمایت از PHP.net</link> را مشاهده کنید.
  </sect1>
 
  <sect1 xml:id="about.howtohelp">
-  <title>How to help improve the documentation</title>
+  <title>چگونه به ارتقا مستندسازی کمک کنیم</title>
   <para>
-   There are several ways everyone can help improve this documentation.
+    راه های مختلفی برای کمک در ارتقا این مستندات وجود دارد.
   </para>
   <para>
-   If an error is found in this manual, in any language, please report them
-   using the issue tracker of the respective language repository at <link xlink:href="https://github.com/php/?q=doc">https://github.com/php</link>;
-   for instance, errors in the English manual should be reported at
-   <link xlink:href="https://github.com/php/doc-en/issues">https://github.com/php/doc-en/issues</link>.
-   All documentation related
-   problems, including those about manual formats, should be submitted as bug 
-   reports.
+   اگر باگی در این راهنما، به هر زبانی یافت شد، لطفاً با استفاده از ردیاب مشکل مخزن زبان مربوطه
+   در <link xlink:href="https://github.com/php/?q=doc">https://github.com/php</link>،
+   آنها را گزارش دهید، به عنوان مثال، خطاهای کتابچه راهنمای انگلیسی باید در <link xlink:href="https://github.com/php/doc-en/issues">https://github.com/php/doc-en/issues</link>
+    گزارش شوند. تمام مشکلات مربوط به مستندات، از جمله موارد مربوط به فرمت های دستی،
+     باید به عنوان گزارش اشکال ارسال شوند.
   </para>
   <note>
    <para>
-    Please don't abuse the issue trackers by submitting requests for help. 
-    Instead, use one of the many 
-    <link xlink:href="&url.php.support;">support options</link>.
+   لطفاً با ارسال درخواست کمک از ردیاب‌های مشکل سوء استفاده نکنید. در عوض، از یکی 
+   از  <link xlink:href="&url.php.support;">گزینه پشتیبانی</link>های متعدد استفاده کنید.
    </para>
   </note>
   <para>
-   By contributing notes, users may provide additional examples, caveats, and
-   clarifications for other readers. But please do not submit bug reports using the
-   annotation system. For details, see the section titled <link
-   linkend="about.notes">'About user notes'</link>.
+   کاربران ممکن است با ارائه یادداشت‌ها، مثال‌ها، هشدارها توضیحات بیشتری را برای سایر خوانندگان ارائه دهند.
+   اما لطفا با استفاده از سیستم حاشیه نویسی گزارش ارسال نکنید. برای جزئیات بیشتر به بخش با
+   عنوان <link linkend="about.notes">'درباره یادداشت های کاربر'</link>. مراجعه کنید.
+  <para>
+  همچنین امکان ارسال درخواست پول(pull) به <link xlink:href="&url.php.git.mirror;doc-en">آینه Github مخزن اسناد</link> نیز وجود دارد.
   </para>
   <para>
-   It is also possible to submit pull requests to the
-   <link xlink:href="&url.php.git.mirror;doc-en">Github mirror of the documentation repository</link>.
+    راهنمای PHP به بسیاری از زبان ها ترجمه شده است. دانستن زبان انگلیسی و یک زبان خارجی، راه دیگری را برای کمک 
+    به بهبود  راهنمای PHP از طریق همکاری با یک تیم ترجمه امکان پذیر می کند. برای کسب اطلاعات در مورد شروع یک
+    ترجمه جدید، یا کمک به نسخه ترجمه شده فعلی، لطفاً <link xlink:href="&url.php.dochowto;">&url.php.dochowto;</link> را بخوانید.
   </para>
   <para>
-   The PHP manual is translated into many languages. Knowing English and a
-   foreign language allows for another way to help improve the PHP manual by
-   working with a translation team. For information about starting a new 
-   translation, or helping a currently translated version, please read
-   <link xlink:href="&url.php.dochowto;">&url.php.dochowto;</link>.
-  </para>
-  <para>
-   The PHP Documentation Project also has an IRC channel where many manual
-   authors hang out. Stop by <literal>#php.doc</literal> on
-   <literal>irc.efnet.org</literal> and discuss ways to improve
-   the PHP documentation.
+    پروژه مستندسازی PHP همچنین دارای یک کانال IRC است که بسیاری از نویسندگان دستی در آن شرکت می کنند. سری
+    به <literal>#php.doc</literal> در <literal>irc.efnet.org</literal> بزنید و در مورد راه های بهبود اسناد PHP بحث کنید.
   </para>
  </sect1>
  
  <sect1 xml:id="about.generate">
-  <title>How we generate the formats</title>
+  <title>ما چگونه فرمت ها را می‌سازیم</title>
   <para>
-   This manual is written in <acronym>XML</acronym> using the <link
-   xlink:href="&url.docbook.xml;">DocBook XML DTD</link>, using <link
-   xlink:href="&url.phd;"><acronym>PhD</acronym></link> (The [PH]P based 
-   [D]ocBook renderer) for maintenance and formatting.
+  این راهنما در <acronym>XML</acronym> به کمک <link xlink:href="&url.docbook.xml;">DocBook XML DTD</link>
+  با استفاده از <link xlink:href="&url.phd;"><acronym>PhD</acronym></link> نوشته شده است. (The [PH]P based [D]ocBook renderer)
+  برای نگهداری و فرمت بندی.
   </para>
   <para>
-   Using <acronym>XML</acronym> as a source format gives 
-   the ability to generate many output formats from the source
-   files, while only maintaining one source document for all formats.
-   The tool used for formatting the online manual is <link
-   xlink:href="&url.phd;">PhD</link>.
-   We use <link xlink:href="&url.winhelp;">Microsoft HTML Help
-   Workshop</link> to generate the <productname>Windows HTML Help</productname> format
-   of the manual, and of course PHP itself to do some
-   additional conversions and formatting.
+   استفاده از <acronym>XML</acronym> به عنوان یک فرمت منبع، توانایی تولید بسیاری از فرمت های خروجی
+   از فایل های منبع را می دهد، در حالی که تنها یک سند منبع برای همه فرمت ها نگهداری می‌شود. ابزار مورد استفاده
+   برای قالب بندی کتابچه راهنمای آنلاین <link xlink:href="&url.phd;">PhD</link> است.
+   ما از <link xlink:href="&url.winhelp;">Microsoft HTML Help Workshop</link>
+   برای تولید فرمت <productname>Windows HTML Help</productname> کتابچه راهنمای کاربر و البته
+   از خود PHP برای انجام برخی تبدیل ها و قالب بندی های اضافی استفاده می کنیم.
   </para>
   <para>
-   The PHP manual is generated in various languages and formats, see 
-   <link xlink:href="&url.php.docs;">&url.php.docs;</link> for additional details.
-   The <acronym>XML</acronym> source code may be downloaded from git and
-   viewed at <link xlink:href="&url.php.git.mirror;doc-en">&url.php.git.mirror;doc-en</link>.
+  راهنمای PHP در زبان ها و فرمت های مختلف تولید می‌شود، برای اطلاعات 
+  بیشتر <link xlink:href="&url.php.docs;">&url.php.docs;</link> را ببینید. سورس‌کد <acronym>XML</acronym>
+  می‌تواند از git دانلود شود و از طریق <link xlink:href="&url.php.git.mirror;doc-en">&url.php.git.mirror;doc-en</link>
+  دیده شود.
   </para>
  </sect1>
 
  <sect1 xml:id="about.translations">
-  <title>Translations</title>
+  <title>ترجمه ها</title>
   <para>
-   The PHP manual is available not only in various formats, but
-   also in various languages. The text of the 
-   manual is first written in English, then teams of people across 
-   the world take care of translating it to their native languages.
-   If a translation for a specified function or chapter has not yet
-   been made, the manual's build system falls back to the 
-   English version of it.
+    کتابچه راهنمای PHP نه تنها در قالب های مختلف، بلکه به زبان های مختلف نیز موجود است. متن این کتابچه راهنمای کاربر
+    ابتدا به زبان انگلیسی نوشته شده است، سپس تیم هایی از مردم در سراسر جهان به ترجمه آن به زبان مادری خود رسیدگی می‌کنند.
+    اگر ترجمه ای برای یک تابع یا فصل مشخص هنوز انجام نشده باشد، سیستم ساخت راهنما به نسخه انگلیسی آن باز می‌گردد.
   </para>
   <para>
-   People involved in the translations start from the <acronym>XML</acronym>
-   source code available from <link xlink:href="&url.php.git.mirror;doc-en">&url.php.git.mirror;doc-en</link>
-   and from it they translate to their mother language. They do 
-   <emphasis>not use</emphasis> the generated versions (like 
-   <acronym>HTML</acronym> or plain text) as it's the build system that takes 
-   care of the conversions from <acronym>XML</acronym> to human readable 
-   formats.
+  افرادی دکه در ترجمه دخیل هستند با سورس‌کد <acronym>XML</acronym> موجود 
+  در <link xlink:href="&url.php.git.mirror;doc-en">&url.php.git.mirror;doc-en</link> شروع کرده 
+  و آن را به زبان مادری خود ترجمه می‌کنند. آن ها از فرمت های ساخته شده (مانند <acronym>HTML</acronym>
+   یا متن ساده) <emphasis>استفاده نمی‌کند</emphasis> زیرا برای سیستمی که کار 
+  تبدیل را انجام می‌دهد، از <acronym>XML</acronym> به عنوان فرمت خواندن برای انسان استفاده می‌شود.
   </para>
   <note>
    <para>
-    To help translate the documentation, 
-    please get in touch with the translation/documentation team by
-    subscribing to the phpdoc mailing list: send an empty mail to <link
-    xlink:href="mailto:&email.php.doc.subscribe;">&email.php.doc.subscribe;</link>.
-    The mailing list address is <literal>&email.php.doc;</literal>. State in the
-    message an interest in translating the manual and someone will reply with
-    feedback on moving forward by helping start a new language translation, or 
-    by contacting the existing team for the desired language.
+   برای کمک به ترجمه اسناد، لطفاً با عضویت در لیست ایمیل phpdoc با تیم ترجمه/مستندات تماس بگیرید: 
+   یک ایمیل خالی به <link xlink:href="mailto:&email.php.doc.subscribe;">&email.php.doc.subscribe;</link> ارسال کنید.
+   لیست آدرس های ایمیل <literal>&email.php.doc;</literal> است. در پیام، علاقه خود را به ترجمه  راهنما اعلام کنید 
+   و شخصی با کمک به شروع یک ترجمه زبان جدید یا تماس با تیم موجود برای زبان مورد نظر، بازخورد خود را در مورد حرکت رو به جلو پاسخ خواهد داد.
    </para>
   </note>
   <para>
-   At the moment the manual is available, partly or not, in over 10 languages.
+    تا به این لحظه این راهنما در ۱۰ زبان موجود است.
+</appendix>
   </para>
   <para>
-   They may all be downloaded here: <link xlink:href="&url.php.docs;">&url.php.docs;</link>.
+   همه آن ها می‌توانند از این قسمت دانلود شوند: <link xlink:href="&url.php.docs;">&url.php.docs;</link>.
   </para>
  </sect1>
 
-</appendix>
 
 <!-- Keep this comment at the end of the file
 Local variables:
