@@ -2,24 +2,23 @@
 <!-- $Revision$ -->
 
  <section xml:id="ini.core" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <title>Description of core &php.ini; directives</title>
+  <title>شرح هسته &php.ini; دستور عمل ها </title>
   <para>
-   This list includes the core &php.ini; directives you can set to
-   configure your PHP setup. Directives handled by extensions are listed
-   and detailed at the extension documentation pages respectively;
-   Information on the session directives for example can be found at the
-   <link linkend="session.configuration">sessions page</link>.
+  این فهرست شامل هسته &php.ini; دستورعمل‌ها است که می‌توانید آن را در بخش راه‌اندازی 
+  تنظیم کنید. دستورالعمل‌هایی که توسط افزونه‌ها مدیریت می‌شوند به ترتیب در صفحات
+   مستندات افزونه فهرست شده و به تفصیل شرح داده شده‌اند. اطلاعات مربوط به دستورالعمل
+    های جلسه برای مثال را می توان در آدرس <link linkend="session.configuration">صفحه نشست ها </link> یافت.
   </para>
   <note>
    <para>
-    The defaults listed here are used when &php.ini; is not loaded; the values for the production and development &php.ini; may vary.
+   پیش فرض های فهرست شده در اینجا زمانی استفاده می شوند که &php.ini; بارگذاری نشده است؛ ارزش های تولید و توسعه &php.ini; ممکن است متفاوت باشد.
    </para>
   </note>
   <section xml:id="ini.sect.language-options">
-   <title>Language Options</title>
+   <title>گزینه زبان‌ها</title>
    <para>
     <table>
-     <title>Language and Misc Configuration Options</title>
+     <title>زبان و گزینه های پیکربندی متفرقه</title>
      <tgroup cols="4">
       <thead>
        <row>
@@ -59,7 +58,7 @@
        <row>
         <entry><link linkend="ini.disable-classes">disable_classes</link></entry>
         <entry>""</entry>
-        <entry>&php.ini; only</entry>
+        <entry>&php.ini; فقط</entry>
         <entry></entry>
        </row>
        <row>
@@ -71,20 +70,20 @@
        <row>
         <entry><link linkend="ini.expose-php">expose_php</link></entry>
         <entry>"1"</entry>
-        <entry>&php.ini; only</entry>
+        <entry>&php.ini; فقط</entry>
         <entry></entry>
        </row>
        <row>
         <entry><link linkend="ini.hard-timeout">hard_timeout</link></entry>
         <entry>"2"</entry>
         <entry>PHP_INI_SYSTEM</entry>
-        <entry>Available as of PHP 7.1.0.</entry>
+        <entry>از PHP 7.1.0 موجود است</entry>
        </row>
        <row>
         <entry><link linkend="ini.zend.exception-ignore-args">zend.exception_ignore_args</link></entry>
         <entry>"0"</entry>
         <entry>PHP_INI_ALL</entry>
-        <entry>Available as of PHP 7.4.0</entry>
+        <entry>از PHP 7.4.0 موجود است</entry>
        </row>
        <row>
         <entry><link linkend="ini.zend.multibyte">zend.multibyte</link></entry>
@@ -120,7 +119,7 @@
         <entry><link linkend="ini.zend.exception-string-param-max-len">zend.exception_string_param_max_len</link></entry>
         <entry>"15"</entry>
         <entry>PHP_INI_ALL</entry>
-        <entry>Available as of PHP 8.0.0.</entry>
+        <entry>از PHP 8.0.0 موجود است</entry>
        </row>
       </tbody>
      </tgroup>
@@ -138,18 +137,17 @@
       </term>
       <listitem>
        <para>
-        Tells PHP whether the short form (<userinput>&lt;? ?&gt;</userinput>)
-        of PHP's open tag should be allowed.  If you want to use PHP in
-        combination with XML, you can disable this option in order to
-        use <userinput>&lt;?xml ?&gt;</userinput> inline.  Otherwise, you
-        can print it with PHP, for example: <userinput>&lt;?php echo '&lt;?xml
-        version="1.0"?&gt;'; ?&gt;</userinput>.  Also, if disabled, you must use the
-        long form of the PHP open tag (<userinput>&lt;?php ?&gt;</userinput>).
+       به PHP می‌گوید آیا حالت کوتاه (<userinput>&lt;? ?&gt;</userinput>) تگ باز PHP 
+       مجاز است یا خیر. اگر می خواهید از PHP در ترکیب با XML استفاده کنید، می توانید این گزینه
+        را غیرفعال کنید تا از <user input>&lt;?xml ?&gt;</user input> به صورت درون‌خطی
+        استفاده کنید. در غیر اینصورت، می‌توانید آن را با PHP مثلا به صورت: <userinput>&lt;?php echo '&lt;?xml
+        version="1.0"?&gt;'; ?&gt;</userinput> پرینت کنید.
+        هم‌چنین در صورت غیرفعال بودن، می‌توانید از حالت باز تگ (<userinput>&lt;?php ?&gt;</userinput>) استفاذه کنید.
        </para>
        <note>
         <para>
-         This directive does not affect the shorthand 
-         <userinput>&lt;?=</userinput>, which is always available.
+        دستورعمل هیچگاه دست‌کوتاه <userinput>&lt;?=</userinput> زا که همیشه در دسترس است،
+        تحت تاثیر قرار نمی‌دهد.
         </para>
        </note>
       </listitem>
@@ -157,14 +155,13 @@
      
      <varlistentry xml:id="ini.precision">
       <term>
-       <parameter>precision</parameter>
+       <parameter>دقت</parameter>
        <type>int</type>
       </term>
       <listitem>
        <simpara>
-        The number of significant digits displayed in floating point numbers.
-        <literal>-1</literal> means that an enhanced algorithm for rounding 
-        such numbers will be used.
+     تعداد ارقام بامعنی نمایش داده شده در اعداد ممیز شناور. <literal>-1</literal>
+      به این معنی است که یک الگوریتم پیشرفته برای گرد کردن چنین اعدادی استفاده خواهد شد.
        </simpara>
       </listitem>
      </varlistentry>
@@ -176,9 +173,9 @@
       </term>
       <listitem>
        <simpara>
-        The number of significant digits stored while serializing floating point numbers.
-        <literal>-1</literal> means that an enhanced algorithm for rounding 
-        such numbers will be used.
+       تعداد ارقام بامعنی که در حین سریال‌سازی اعداد ممیز شناور ذخیره 
+       می‌شوند.<literal>-1</literal> به این معنی است که از الگوریتم 
+       پیشرفته‌ای برای گرد کردن این اعداد استفاده می‌شود.
       </simpara>
       </listitem>
      </varlistentry>
@@ -190,8 +187,8 @@
       </term>
       <listitem>
        <para>
-        Exposes to the world that PHP is installed on the server, which includes the
-        PHP version within the HTTP header (e.g., X-Powered-By: PHP/5.3.7).
+       به دنیا نشان می دهد که PHP بر روی سرور نصب شده است، که شامل نسخه PHP 
+       در هدر HTTP است (به عنوان مثال، X-Powered-By: PHP/5.3.7).
        </para>
       </listitem>
      </varlistentry>
@@ -203,17 +200,16 @@
       </term>
       <listitem>
        <para>
-        This directive allows you to disable certain functions. It takes 
-        on a comma-delimited list of function names.
+       این دستورالعمل به شما اجازه می دهد تا تابع خاصی را غیرفعال کنید.
+       فهرستی از نام توابع با کاما محدود می شود.
        </para>
        <para>
-        Only <link linkend="functions.internal">internal functions</link> can
-        be disabled using this directive. <link linkend="functions.user-defined">User-defined functions</link>
-        are unaffected.
+       فقط <link linkend="functions.internal">توابع داخلی</link> را می‌توان 
+       با استفاده از این دستورالعمل غیرفعال کرد. <link linkend="functions.user-defined">توابع تعریف شده توسط کاربر</link>
+        تحت تاثیر قرار نمی گیرند.
        </para>
        <para>
-        This directive must be set in &php.ini; For example, you 
-        cannot set this in &httpd.conf;.
+       این دستورالعمل باید در php.ini تنظیم شود. به عنوان مثال، شما نمی توانید این را در httpd.conf; تنظیم کنید.
        </para>
       </listitem>
      </varlistentry>
@@ -225,12 +221,11 @@
       </term>
       <listitem>
        <simpara>
-        This directive allows you to disable certain classes. It takes
-        on a comma-delimited list of class names.
+       این دستورالعمل به شما امکان می دهد کلاس های خاصی را غیرفعال کنید.
+       لیستی از نام کلاس ها با کاما محدود می شود.
        </simpara>
        <simpara>
-        This directive must be set in &php.ini;  For example, you
-        cannot set this in &httpd.conf;.
+       این دستورالعمل باید در &php.ini; تنظیم شود. به عنوان مثال، شما نمی توانید این را در &httpd.conf; تنظیم کنید.
        </simpara>
       </listitem>
      </varlistentry>
