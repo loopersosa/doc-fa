@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
  <appendix xml:id="debugger" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <title>Debugging in PHP</title>
+  <title>عیب یابی در PHP</title>
 
   <sect1 xml:id="debugger-about">
-   <title>About debugging in PHP</title>
+   <title>درباره عیب‌یابی  در PHP</title>
    <simpara>
-    PHP is shipped with the <link linkend="migration56.new-features.phpdbg">phpdbg</link> interactive debugger. 
-    External debuggers can also be used. The
-    <link xlink:href="&url.zend.ide;">Zend IDE</link> includes
-    a debugger, and there are also some free debugger extensions
-    like DBG at <link xlink:href="&url.dbg;">&url.dbg;</link>, the 
-    <link xlink:href="&url.apd;">Advanced PHP Debugger</link> (APD) or
-    <link xlink:href="&url.xdebug;">Xdebug</link>.
+   زبان PHP با عیب‌یاب تعاملی <link linkend="migration56.new-features.phpdbg">phpdbg</link> همراه شده است.
+   عیب‌یاب خارجی نیز می‌تواند مورد استفاده قرار گیرد. <link xlink:href="&url.zend.ide;">Zend IDE</link>
+   تشکیل شده از یک عیب یاب، به همراه مقداری افزونه رایگان عیب‌یابی مثل  DBG در <link xlink:href="&url.dbg;">&url.dbg;</link>،
+   <link xlink:href="&url.apd;">عیب‌یاب پیشرفته PHP</link> (APD)، 
+   یا <link xlink:href="&url.xdebug;">Xdebug</link است.
    </simpara>
   </sect1>
 
